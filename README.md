@@ -1,38 +1,52 @@
 # BankSight AI: An Explainable Customer Segmentation, Churn Prediction and Evidence-Aware Retention Intelligence Platform for European Retail Banking
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![FastAPI](https://img.shields.io/badge/REST_API-FastAPI-009688?style=for-the-badge&logo=fastapi)](http://localhost:8000/docs)
-[![React](https://img.shields.io/badge/Frontend-React_18-61DAFB?style=for-the-badge&logo=react)](http://localhost:5173/)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Render_Online-46E3B7?style=for-the-badge&logo=render)](https://banksight-ai-o4ou.onrender.com)
+[![FastAPI](https://img.shields.io/badge/REST_API-FastAPI_Live-009688?style=for-the-badge&logo=fastapi)](https://banksight-ai-o4ou.onrender.com/docs)
+[![React](https://img.shields.io/badge/Frontend-React_18-61DAFB?style=for-the-badge&logo=react)](https://banksight-ai-o4ou.onrender.com)
 [![Three.js](https://img.shields.io/badge/3D_Engine-Three.js_WebGL-black?style=for-the-badge&logo=three.js)](https://threejs.org/)
 [![Scikit-Learn](https://img.shields.io/badge/ML-Scikit--Learn-F7931E?style=for-the-badge&logo=scikit-learn)](https://scikit-learn.org)
 [![SHAP](https://img.shields.io/badge/XAI-SHAP_TreeExplainer-blueviolet?style=for-the-badge)](https://shap.readthedocs.io)
 [![Tailwind CSS](https://img.shields.io/badge/Styling-Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 > 🏛️ **European Retail Banking Analytics & XAI Platform**  
-> 🌐 **Interactive Swagger API Docs:** [http://localhost:8000/docs](http://localhost:8000/docs)  
-> ⚡ **React 18 + Vite Dev Server:** [http://localhost:5173/](http://localhost:5173/)  
+> 🌐 **Live Web Application:** [https://banksight-ai-o4ou.onrender.com](https://banksight-ai-o4ou.onrender.com)  
+> 📖 **Interactive Swagger API Docs:** [https://banksight-ai-o4ou.onrender.com/docs](https://banksight-ai-o4ou.onrender.com/docs)  
+> 👤 **Author & Lead Data Scientist:** **Pranav Kokande**  
 > 📄 **Academic Research Paper:** [`BankSight_AI_Research_Paper.docx`](./BankSight_AI_Research_Paper.docx)  
 > Built with **React 18**, **Three.js / WebGL**, **FastAPI**, **Scikit-Learn**, **SHAP**, and **Tailwind CSS**.
 
 ---
 
-## ⚡ Quickstart: Running the Application
+## 🚀 Live Demo & Quick Access
 
-To run the full-stack system locally in development mode (exactly like RouteNexa AI):
+BankSight AI is live and publicly accessible on cloud infrastructure:
+- 🔗 **Production URL**: [https://banksight-ai-o4ou.onrender.com](https://banksight-ai-o4ou.onrender.com)
+- 📚 **Swagger REST Docs**: [https://banksight-ai-o4ou.onrender.com/docs](https://banksight-ai-o4ou.onrender.com/docs)
+- 🔐 **Pre-Configured Profile**: **Pranav Kokande** (`Lead Data Scientist`)
 
-### 1. Start the React Frontend
-```cmd
+---
+
+## ⚡ Local Development Quickstart
+
+To run the full-stack system locally in development mode:
+
+### 1. Unified Launcher (Windows)
+Double-click `START_BANKSIGHT.bat` in the project root to start both backend and frontend servers in one click.
+
+### 2. Manual Commands
+**Frontend (Vite Dev Server):**
+```bash
 cd frontend
-npm.cmd run dev
+npm run dev
 ```
-*(The modern React dashboard will launch at **http://localhost:5173**)*
+*(Runs at `http://localhost:5173`)*
 
-### 2. Start the FastAPI REST Backend
-```cmd
-cd C:\Users\prana\OneDrive\Desktop\BankSight-AI
+**Backend (FastAPI REST Server):**
+```bash
 python -m uvicorn backend.app.main:app --host 0.0.0.0 --port 8000 --reload
 ```
-*(The backend API service and Swagger UI will be live at **http://localhost:8000** and **http://localhost:8000/docs**)*
+*(Runs at `http://localhost:8000` and `http://localhost:8000/docs`)*
 
 ---
 
