@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+*/node_modules/
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyd
+*.pyo
+.pytest_cache/
+.matplotlib_cache/
+*.egg-info/
+.eggs/
+
+# Environments
+env/
+venv/
+.venv/
+ENV/
+
+# Data & Database runtime files
+*.sqlite3-journal
+data/*.db-journal
+
+# Logs & Temporary files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.system_generated/
+scratch/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS Files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
