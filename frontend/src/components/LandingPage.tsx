@@ -48,6 +48,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
   currentUser,
 }) => {
   const [isDossierOpen, setIsDossierOpen] = useState(false);
+  const [dossierTab, setDossierTab] = useState<'architecture' | 'contact'>('architecture');
   const [activeNav, setActiveNav] = useState<'home' | 'features' | 'analytics' | 'about' | 'contact'>('home');
   const { currentPalette, isDarkTheme, setIsDarkTheme } = useTheme();
   const [isAnalyticsDropdownOpen, setIsAnalyticsDropdownOpen] = useState(false);
@@ -248,7 +249,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                   <Orbit className="w-3.5 h-3.5 text-purple-400" />
                   <div>
                     <span className="font-semibold block">3D Customer Galaxy</span>
-                    <span className={`text-[10px] ${isDarkTheme ? 'text-slate-400' : 'text-slate-500'}`}>10,847 customer embeddings</span>
+                    <span className={`text-[10px] ${isDarkTheme ? 'text-slate-400' : 'text-slate-500'}`}>{totalAccounts.toLocaleString()} customer embeddings</span>
                   </div>
                 </button>
                 <button
@@ -306,6 +307,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           <button
             onClick={() => {
               setActiveNav('about');
+              setDossierTab('architecture');
               setIsDossierOpen(true);
             }}
             className={`relative py-1 transition-colors ${
@@ -320,6 +322,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           <button
             onClick={() => {
               setActiveNav('contact');
+              setDossierTab('contact');
               setIsDossierOpen(true);
             }}
             className={`relative py-1 transition-colors ${
@@ -944,7 +947,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             isDarkTheme ? 'bg-slate-900/80 border-emerald-500/30 text-emerald-400 shadow-slate-950/60' : 'bg-white/90 border-emerald-300 text-emerald-700 shadow-slate-200'
           }`}>
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#34d399]" />
-            <span className={`font-semibold ${isDarkTheme ? 'text-slate-200' : 'text-slate-800'}`}>DATASET CONNECTED • EUROPE (10,847 PORTFOLIO RECORDS)</span>
+            <span className={`font-semibold ${isDarkTheme ? 'text-slate-200' : 'text-slate-800'}`}>DATASET CONNECTED • EUROPE ({totalAccounts.toLocaleString()} PORTFOLIO RECORDS)</span>
             <span className={isDarkTheme ? 'text-slate-600' : 'text-slate-300'}>|</span>
             <span className="text-sky-500 font-semibold">CHAMPION MODEL ONLINE (TEST ROC-AUC {championAuc})</span>
           </div>
@@ -1168,6 +1171,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
       {/* THESIS DOSSIER MODAL */}
       <ThesisDossierModal
         isOpen={isDossierOpen}
+        initialTab={dossierTab}
         onClose={() => setIsDossierOpen(false)}
         onEnterDashboard={() => {
           setIsDossierOpen(false);
