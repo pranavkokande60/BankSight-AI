@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import bankHeroImg from '../assets/bank_hero.jpg';
 import { useTheme } from '../themeContext';
 import { HolographicCustomerOrb } from './HolographicCustomerOrb';
+import { HolographicBankEmblem } from './HolographicBankEmblem';
 
 interface FuturisticBankTower3DProps {
   className?: string;
@@ -43,6 +44,14 @@ export const FuturisticBankTower3D: React.FC<FuturisticBankTower3DProps> = ({
     top: '75.1%',
     width: '74px',
     height: '74px',
+    transform: 'translate(-50%, -50%)',
+  });
+  const [bankEmblemStyle, setBankEmblemStyle] = useState<React.CSSProperties>({
+    position: 'absolute',
+    left: '49.3%',
+    top: '33.8%',
+    width: '64px',
+    height: '52px',
     transform: 'translate(-50%, -50%)',
   });
 
@@ -101,6 +110,22 @@ export const FuturisticBankTower3D: React.FC<FuturisticBankTower3DProps> = ({
         height: `${orb2Size}px`,
         transform: 'translate(-50%, -50%)',
         zIndex: 14,
+      });
+
+      // Central 3D Rotating Bank Temple Emblem (Above the word BANK, matching user image)
+      const bankX = offsetX + renderedW * 0.492676;
+      const bankY = offsetY + renderedH * 0.338261;
+      const bankW = Math.max(48, Math.min(96, renderedW * 0.056));
+      const bankH = bankW * 0.82;
+
+      setBankEmblemStyle({
+        position: 'absolute',
+        left: `${bankX}px`,
+        top: `${bankY}px`,
+        width: `${bankW}px`,
+        height: `${bankH}px`,
+        transform: 'translate(-50%, -50%)',
+        zIndex: 16,
       });
     };
 
@@ -252,6 +277,11 @@ export const FuturisticBankTower3D: React.FC<FuturisticBankTower3DProps> = ({
           {/* Secondary 3D Rotating Holographic Telemetry Node */}
           <div style={lowerOrbStyle} className="pointer-events-auto opacity-75 hover:opacity-100 transition-opacity">
             <HolographicCustomerOrb isDarkTheme={isDarkTheme} />
+          </div>
+
+          {/* Central 3D Rotating Bank Temple Emblem (Above the word BANK, matches uploaded design) */}
+          <div style={bankEmblemStyle} className="pointer-events-auto">
+            <HolographicBankEmblem isDarkTheme={isDarkTheme} />
           </div>
         </div>
       </div>
