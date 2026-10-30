@@ -151,6 +151,17 @@ if FRONTEND_DIST.exists():
     def serve_frontend_dist():
         index_html = FRONTEND_DIST / "index.html"
         return FileResponse(index_html)
+
+    # SPA Fallback for client-side navigation
+    @app.get("/{full_path:path}")
+    def serve_spa_fallback(full_path: str):
+        static_file = FRONTEND_DIST / full_path
+        if static_file.is_file():
+            return FileResponse(static_file)
+        index_html = FRONTEND_DIST / "index.html"
+        if index_html.exists():
+            return FileResponse(index_html)
+        raise HTTPException(status_code=404, detail="Resource not found")
 elif FRONTEND_DIR.exists() and (FRONTEND_DIR / "index.html").exists():
     @app.get("/")
     def serve_frontend_html():
@@ -165,7 +176,7 @@ if __name__ == "__main__":
         for p in [preferred, 8001, 8080, 8501, 8088, 5000]:
             try:
                 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-                    s.bind(("127.0.0.1", p))
+                    s.bind(("0.0.0.0", p))
                     return p
             except OSError:
                 continue
@@ -178,5 +189,6 @@ if __name__ == "__main__":
         cli_port = int(os.environ["PORT"])
 
     selected_port = cli_port if cli_port else find_free_port(8000)
-    print(f"\n{'='*70}\n  BankSight AI Production Platform\n  Serving at: http://localhost:{selected_port}\n  API docs:   http://localhost:{selected_port}/docs\n{'='*70}\n")
-    uvicorn.run("backend.app.main:app", host="127.0.0.1", port=selected_port, reload=False)
+    server_host = os.environ.get("HOST", "0.0.0.0")
+    print(f"\n{'='*70}\n  BankSight AI Production Platform\n  Serving at: http://{server_host}:{selected_port}\n  API docs:   http://{server_host}:{selected_port}/docs\n{'='*70}\n")
+    uvicorn.run("backend.app.main:app", host=server_host, port=selected_port, reload=False)

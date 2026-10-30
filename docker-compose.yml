@@ -1,0 +1,10 @@
+services:
+  banksight-ai:
+    build: .
+    container_name: banksight-ai
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - HOST=0.0.0.0
