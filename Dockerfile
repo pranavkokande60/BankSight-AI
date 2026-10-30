@@ -33,7 +33,7 @@ EXPOSE 8000
 
 # Healthcheck
 HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
-  CMD curl -f http://localhost:${PORT}/api/v1/dashboard/summary || exit 1
+  CMD curl -f http://localhost:${PORT:-8000}/api/v1/dashboard/summary || exit 1
 
 # Start FastAPI Uvicorn ASGI server with dynamic cloud $PORT support
 CMD ["sh", "-c", "uvicorn backend.app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
