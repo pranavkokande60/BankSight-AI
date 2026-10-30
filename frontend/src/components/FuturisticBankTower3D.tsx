@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import bankHeroImg from '../assets/bank_hero.jpg';
 import { useTheme } from '../themeContext';
+import { HolographicCustomerOrb } from './HolographicCustomerOrb';
 
 interface FuturisticBankTower3DProps {
   className?: string;
@@ -26,7 +27,93 @@ export const FuturisticBankTower3D: React.FC<FuturisticBankTower3DProps> = ({
   const isDarkTheme = isDarkThemeProp !== undefined ? isDarkThemeProp : isDarkThemeCtx;
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const imgWrapperRef = useRef<HTMLDivElement>(null);
   const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
+  const [orbStyle, setOrbStyle] = useState<React.CSSProperties>({
+    position: 'absolute',
+    left: '77.8%',
+    top: '33.1%',
+    width: '100px',
+    height: '100px',
+    transform: 'translate(-50%, -50%)',
+  });
+  const [lowerOrbStyle, setLowerOrbStyle] = useState<React.CSSProperties>({
+    position: 'absolute',
+    left: '86.5%',
+    top: '75.1%',
+    width: '74px',
+    height: '74px',
+    transform: 'translate(-50%, -50%)',
+  });
+
+  // Calculate dynamic pixel-perfect positioning of the holographic orb over the background image
+  useEffect(() => {
+    const updateOrbCoordinates = () => {
+      const el = imgWrapperRef.current;
+      if (!el) return;
+      const cW = el.clientWidth;
+      const cH = el.clientHeight;
+      if (cW === 0 || cH === 0) return;
+
+      const imgAspect = 1024 / 575; // 1.78087
+      const containerAspect = cW / cH;
+
+      let renderedW = cW;
+      let renderedH = cH;
+      let offsetX = 0;
+      let offsetY = 0;
+
+      if (containerAspect > imgAspect) {
+        renderedW = cW;
+        renderedH = cW / imgAspect;
+        offsetY = (cH - renderedH) / 2;
+      } else {
+        renderedH = cH;
+        renderedW = cH * imgAspect;
+        offsetX = (cW - renderedW) / 2;
+      }
+
+      // Upper primary holographic customer orb (matches user image)
+      const orb1X = offsetX + renderedW * 0.777832;
+      const orb1Y = offsetY + renderedH * 0.331304;
+      const orb1Size = Math.max(76, Math.min(130, renderedW * 0.082));
+
+      setOrbStyle({
+        position: 'absolute',
+        left: `${orb1X}px`,
+        top: `${orb1Y}px`,
+        width: `${orb1Size}px`,
+        height: `${orb1Size}px`,
+        transform: 'translate(-50%, -50%)',
+        zIndex: 15,
+      });
+
+      // Lower secondary holographic telemetry node
+      const orb2X = offsetX + renderedW * 0.865234;
+      const orb2Y = offsetY + renderedH * 0.751304;
+      const orb2Size = Math.max(54, Math.min(94, renderedW * 0.062));
+
+      setLowerOrbStyle({
+        position: 'absolute',
+        left: `${orb2X}px`,
+        top: `${orb2Y}px`,
+        width: `${orb2Size}px`,
+        height: `${orb2Size}px`,
+        transform: 'translate(-50%, -50%)',
+        zIndex: 14,
+      });
+    };
+
+    updateOrbCoordinates();
+    window.addEventListener('resize', updateOrbCoordinates);
+    const observer = new ResizeObserver(updateOrbCoordinates);
+    if (imgWrapperRef.current) observer.observe(imgWrapperRef.current);
+
+    return () => {
+      window.removeEventListener('resize', updateOrbCoordinates);
+      observer.disconnect();
+    };
+  }, []);
 
   // 1. Interactive Mouse Parallax
   useEffect(() => {
@@ -147,12 +234,25 @@ export const FuturisticBankTower3D: React.FC<FuturisticBankTower3DProps> = ({
           transform: `scale(1.06) translate3d(${mouseOffset.x * -14}px, ${mouseOffset.y * -10}px, 0)`,
         }}
       >
-        <div className="w-full h-full translate-x-[6%] sm:translate-x-[8%] lg:translate-x-[11%] xl:translate-x-[12%]">
+        <div
+          ref={imgWrapperRef}
+          className="w-full h-full translate-x-[6%] sm:translate-x-[8%] lg:translate-x-[11%] xl:translate-x-[12%] relative"
+        >
           <img
             src={bankHeroImg}
             alt="BankSight AI Futuristic Headquarters"
             className="w-full h-full object-cover object-center brightness-[1.04] contrast-[1.08]"
           />
+
+          {/* Primary 3D Rotating Holographic Customer Avatar Orb (Matches uploaded design) */}
+          <div style={orbStyle} className="pointer-events-auto">
+            <HolographicCustomerOrb isDarkTheme={isDarkTheme} />
+          </div>
+
+          {/* Secondary 3D Rotating Holographic Telemetry Node */}
+          <div style={lowerOrbStyle} className="pointer-events-auto opacity-75 hover:opacity-100 transition-opacity">
+            <HolographicCustomerOrb isDarkTheme={isDarkTheme} />
+          </div>
         </div>
       </div>
 
