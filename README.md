@@ -7,11 +7,13 @@
 [![Scikit-Learn](https://img.shields.io/badge/ML-Scikit--Learn-F7931E?style=for-the-badge&logo=scikit-learn)](https://scikit-learn.org)
 [![SHAP](https://img.shields.io/badge/XAI-SHAP_TreeExplainer-blueviolet?style=for-the-badge)](https://shap.readthedocs.io)
 [![Tailwind CSS](https://img.shields.io/badge/Styling-Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+[![Internship Video](https://img.shields.io/badge/Internship_Video-Watch_Walkthrough_%26_Feedback-FF0000?style=for-the-badge&logo=youtube)](https://www.linkedin.com/in/pranav-kokande/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 > 🏛️ **European Retail Banking Analytics & XAI Platform**  
 > 🌐 **Live Web Application:** [https://banksight-ai-o4ou.onrender.com](https://banksight-ai-o4ou.onrender.com)  
 > 📖 **Interactive Swagger API Docs:** [https://banksight-ai-o4ou.onrender.com/docs](https://banksight-ai-o4ou.onrender.com/docs)  
+> 🎥 **Internship Experience & Feedback Video:** [Watch Video Presentation on LinkedIn](https://www.linkedin.com/in/pranav-kokande/)  
 > 👤 **Author & Lead Data Scientist:** **Pranav Kokande**  
 > 📄 **Academic Research Paper:** [`BankSight_AI_Research_Paper.docx`](./BankSight_AI_Research_Paper.docx)  
 > Built with **React 18**, **Three.js / WebGL**, **FastAPI**, **Scikit-Learn**, **SHAP**, and **Tailwind CSS**.
@@ -23,7 +25,26 @@
 BankSight AI is live and publicly accessible on cloud infrastructure:
 - 🔗 **Production URL**: [https://banksight-ai-o4ou.onrender.com](https://banksight-ai-o4ou.onrender.com)
 - 📚 **Swagger REST Docs**: [https://banksight-ai-o4ou.onrender.com/docs](https://banksight-ai-o4ou.onrender.com/docs)
+- 🎥 **Internship Video Link**: [https://www.linkedin.com/in/pranav-kokande/](https://www.linkedin.com/in/pranav-kokande/)
 - 🔐 **Pre-Configured Profile**: **Pranav Kokande** (`Lead Data Scientist`)
+
+---
+
+## 🎥 Internship Experience & Feedback Video
+
+- 🔗 **Video Presentation Link:** [Watch Internship Walkthrough & Experience Video on LinkedIn](https://www.linkedin.com/in/pranav-kokande/)
+- 👤 **Intern:** **Pranav Kokande** (`Lead Data Scientist & Quantitative Systems Architect`)
+- 🏆 **Project:** **BankSight AI — European Banking Customer Retention & Explainable ML Platform**
+
+### 💡 Key Technical Learnings:
+1. **Explainable AI (XAI) & Game Theory:** Implemented TreeSHAP local attributions and discovered the empirical *Multi-Product Holding Cliff*, explaining non-linear churn spikes at $\ge 3$ products.
+2. **Causal Machine Learning:** Built Two-Model XGBoost Causal Uplift models to calculate Individual Treatment Effects (ITE) and systematically insulate "Sleeping Dogs" (customers provoked by unsolicited contact).
+3. **Proprietary Optimization:** Formulated the Evidence-Aware Retention Allocation (EARA) bounded knapsack framework, retaining €41.2M more capital under finite review budgets compared to standard greed-based sorting.
+4. **Interactive 3D WebGL Visualization:** Engineered 60 FPS Three.js point-cloud manifolds projecting 10,004 customer embeddings across PCA components with aspect-ratio-locked gyroscopic 3D holographic emblems.
+5. **Full-Stack & Cloud MLOps:** Integrated 22 analytical modules using React 19, TypeScript, and FastAPI, containerized via Docker and deployed live on Render with automated CI/CD and health checks.
+
+### 🌟 Internship Feedback & Experience:
+> *"This internship provided an exceptional, production-grade software and quantitative engineering experience. It bridged theoretical statistical modeling with real-world European regulatory mandates (EU AI Act & Basel III), full-stack microservices, and interactive 3D frontend design. Building BankSight AI end-to-end honed my skills in production machine learning, scalable REST APIs, and client-side data visualization."*
 
 ---
 

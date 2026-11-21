@@ -14,7 +14,8 @@ import {
   Code2,
   FileCheck2,
   Sparkles,
-  Server
+  Server,
+  Video
 } from 'lucide-react';
 
 interface ThesisDossierModalProps {
@@ -258,6 +259,34 @@ export const ThesisDossierModal: React.FC<ThesisDossierModalProps> = ({
                   </p>
                 </div>
               </div>
+
+              {/* Internship Experience & Feedback Video Banner */}
+              <a
+                href="https://www.linkedin.com/in/pranav-kokande/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-4 rounded-xl bg-gradient-to-r from-rose-950/40 via-slate-950/60 to-purple-950/40 border border-rose-500/30 hover:border-rose-400/60 transition-all flex items-center justify-between group cursor-pointer"
+              >
+                <div className="flex items-center space-x-3.5">
+                  <div className="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400 group-hover:scale-110 transition-transform shrink-0">
+                    <Video className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="flex items-center space-x-2">
+                      <span className="text-[10px] uppercase font-bold text-rose-400 tracking-wider">
+                        Internship Presentation
+                      </span>
+                      <span className="px-2 py-0.5 rounded-full bg-rose-500/10 text-rose-300 border border-rose-500/20 text-[9px] font-mono">
+                        Experience & Feedback Video
+                      </span>
+                    </div>
+                    <span className="text-xs font-semibold text-white group-hover:text-rose-300 transition-colors block mt-0.5">
+                      Watch Internship Video: Technical Learnings, Architecture & Outcomes
+                    </span>
+                  </div>
+                </div>
+                <ExternalLink className="w-4 h-4 text-slate-500 group-hover:text-rose-300 transition-colors shrink-0 ml-2" />
+              </a>
 
               {/* Direct Contact Channels */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
