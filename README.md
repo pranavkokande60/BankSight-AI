@@ -96,27 +96,27 @@ The system transforms raw customer records into actionable retention intelligenc
 
 ```mermaid
 flowchart TD
-    subgraph Data Layer
-        A[European Retail Bank Dataset] --> B[Automated 10-Point Data Auditor]
-        B --> C[Leakage-Free Preprocessing Pipeline]
-        C --> D[(In-Memory Artifacts & Scored Portfolio)]
+    subgraph DataLayer ["Data Layer"]
+        A["European Retail Bank Dataset"] --> B["Automated 10-Point Data Auditor"]
+        B --> C["Leakage-Free Preprocessing Pipeline"]
+        C --> D[("In-Memory Artifacts & Scored Portfolio")]
     end
 
-    subgraph Backend Service [FastAPI @ :8000]
-        D --> E[FastAPI REST API v1]
-        F[ML Champion: Gradient Boosting 0.8612] --> E
-        G[SHAP TreeExplainer & XAI Engine] --> E
-        H[EARA Prioritizer Engine] --> E
-        I[Fairness & Simulation Service] --> E
+    subgraph BackendService ["Backend Service (FastAPI @ :8000)"]
+        D --> E["FastAPI REST API v1"]
+        F["ML Champion: Gradient Boosting 0.8612"] --> E
+        G["SHAP TreeExplainer & XAI Engine"] --> E
+        H["EARA Prioritizer Engine"] --> E
+        I["Fairness & Simulation Service"] --> E
     end
 
-    subgraph Frontend Application [React 18 + Vite @ :5173]
-        E --> J[Typed API Client]
-        J --> K[Interactive 3D Customer Galaxy WebGL]
-        J --> L[Executive Command Center & Telemetry]
-        J --> M[Customer Risk Passport & Playground]
-        J --> N[EARA Prioritization & What-If Simulator]
-        J --> O[AI Banking Assistant & Reports]
+    subgraph FrontendApp ["Frontend Application (React 18 + Vite @ :5173)"]
+        E --> J["Typed API Client"]
+        J --> K["Interactive 3D Customer Galaxy WebGL"]
+        J --> L["Executive Command Center & Telemetry"]
+        J --> M["Customer Risk Passport & Playground"]
+        J --> N["EARA Prioritization & What-If Simulator"]
+        J --> O["AI Banking Assistant & Reports"]
     end
 ```
 
